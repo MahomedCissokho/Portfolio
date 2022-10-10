@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import Directory from './components/directory/directory.component';
+import {reveal} from './components/animations/animation.component';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    const count = setInterval(() => {
+      setCounter((counter) =>
+        counter < 100 ?
+        counter + 1 :
+        (clearInterval(count), setCounter(100), 
+        reveal())
+      ); 
+    }, 170);
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Directory counter={counter} />
+  )
 }
 
 export default App;
