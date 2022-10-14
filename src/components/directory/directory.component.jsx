@@ -1,4 +1,4 @@
-import Logo from "../../img/IMG-20220724-WA0088.jpg";
+import Home from "../home/home.component";
 
 import {
   Container,
@@ -10,8 +10,8 @@ import {
 } from "../animations/animation.component";
 
 const Directory = ({counter}) => {
-  return(
 
+  return(
   <Container>
     <Loading>
       <Follow className="follow"></Follow>
@@ -26,9 +26,7 @@ const Directory = ({counter}) => {
       </Count>
     </Loading>
     <Content className="system">
-      <p className="content">hello , my name is cisco</p>
-      <p className="content">I'am web developer</p>
-      <img src={Logo} alt='pictures' className='content' />
+      <Home counter = {counter}/>
     </Content>
   </Container>
 )

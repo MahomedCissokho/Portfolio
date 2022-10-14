@@ -6,7 +6,7 @@ gsap.registerPlugin(CSSPlugin);
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: #292929;
+  background-color: #0a192f;
   position: relative;
 `;
 
@@ -34,7 +34,7 @@ const ProgressBar = styled.div`
   height: 2px;
   width: 0;
   left: 0;
-  transition: 0.6s ease-out;
+  transition: 0.6s ease-in-out;
 `;
 
 const Count = styled.p`
@@ -45,7 +45,7 @@ const Count = styled.p`
   transform: translateY(-30px);
 `;
 
-const Content = styled.div`
+let Content = styled.div`
   height : 100%;
   display : flex;
   justify-content : center;
@@ -56,22 +56,20 @@ const Content = styled.div`
   flex-direction: column,
   overflow : hidden;
   color :#fff;
-  background-color :#292929;
+  background-color :#0a192f;
 
-  p, img{
+  .content{
     text-align : center;
     opacity :0;
     display : none;
     margin :0;
   }
 `;
-
   const reveal = () => {
     const t1 = gsap.timeline({
-      onComplete: () => {
-        console.log("completed");
-      },
+      
     });
+    
     t1.to(".follow", {
       width: "100%",
       ease: Expo.easeInOut,
@@ -99,7 +97,7 @@ const Content = styled.div`
         stagger: 0.15,
         ease: Expo.easeInOut,
         duration: 0.6,
-      });
+      })
   };
 
 export {
